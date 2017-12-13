@@ -8,7 +8,7 @@ Instructions: implement all of the pending specs (the `it` statements
 
 describe Dessert do
   subject(:ice_cream) { Dessert.new("ice cream", 10, chef) }
-  let(:chef) { double("chef", name: "Jon")}
+  let(:chef) { double("chef", name: "Jon") }
 
   describe "#initialize" do
     it "sets a type" do
