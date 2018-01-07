@@ -1,0 +1,11 @@
+<% band = Band.find_by(id: @album.band_id) %>
+<% band_name = band.name %>
+<% album_type = @album.is_live_album ? "Live" : "Studio" %>
+<h2><%= @album.title %></h6>
+
+<p>Year: <%= @album.year %></p>
+<p>Band: <%= link_to "#{band_name}", band_url(band) %></p>
+<p>Type of Album: <%= album_type %></p>
+<%= button_to "Edit", edit_album_url(@album), method: :get %>
+<%= button_to "Delete", album_url(@album), method: :delete %>
+<%= link_to "Create New Track", new_album_track_url(@album) %>

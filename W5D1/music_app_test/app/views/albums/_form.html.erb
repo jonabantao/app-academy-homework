@@ -1,0 +1,49 @@
+<% action_url = action == :new ? albums_url : album_url(album) %>
+<% method = action == :new ? "post" : "patch" %>
+<% submit_text = action == :new ? "Register Album" : "Update Album" %>
+
+<div class="form-container">
+  <h3>Album Info</h3>
+
+  <form class="" action="<%= action_url %>" method="<%= method %>">
+    <%= auth_token %>
+    <br>
+    <label for="title">Title</label><br>
+    <input id="title" type="text" name="album[title]" value="<%= album.title %>"><br>
+    <label for="track_year">Year</label><br />
+    <%= select_year(Date.today,
+      start_year: 1900,
+      end_year: 2020,
+      field_name: "year",
+      prefix: "track") %>
+    <br />
+    <label for="band">Band</label><br />
+    <select id="band" class="" name="album[band_id]">
+      <option disabled <%= "selected" if album.id == nil %>>--Select Band--</option>
+      <% bands.each do |band| %>
+      <%= "<option value=\"#{band.id}\" #{"checked" if album.band_id == band.id}>
+            #{h(band.name)}
+          </option>".html_safe %>
+      <% end %>
+    </select>
+
+    <br>
+
+    <input id="live"
+      type="radio"
+      name="album[is_live_album]"
+      value="true"
+      <%= "checked" if !!album.is_live_album %>
+    />
+    <label for="live">Live Album</label><br>
+    <input id="studio"
+      type="radio"
+      name="album[is_live_album]"
+      value="false"
+      <%= "checked" unless !!album.is_live_album %>
+      />
+    <label for="studio">Studio Album</label>
+    <br>
+    <input type="submit" name="" value="<%= submit_text %>">
+  </form>
+</div>

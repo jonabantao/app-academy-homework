@@ -1,0 +1,18 @@
+<% action_url = action == :new ? tracks_url : track_url(track) %>
+<% method = action == :new ? "post" : "patch" %>
+<% submit_text = action == :new ? "Register Track" : "Update Track" %>
+
+<form class="" action="index.html" method="post">
+  <%= auth_token %>
+
+  <label for="title">Title</label>
+  <input type="text" name="track[title]" value="<%= track.title %>">
+
+  <%= select_year(Date.today, start_year: 1992, end_year: 2007, field_name: "year", prefix: "track") %>
+
+  <select class="" name="track[albums]">
+    <% albums.each do |album| %>
+    <%= "<option value=\"#{album.id}\">#{h(album.title)}</option>".html_safe %>
+    <% end %>
+  </select>
+</form>

@@ -1,0 +1,12 @@
+<% action_url = action == :new ? bands_url : band_url(band) %>
+<% method = action == :new ? "post" : "patch" %>
+<% submit_text = action == :new ? "Register Band" : "Update Band" %>
+
+<div class="form-container">
+  <h3>Band Info</h3>
+<form class="" action="<%= action_url %>" method="<%= method %>">
+  <%= auth_token %>
+  <input type="text" name="band[name]" value="<%= band.name %>">
+  <input type="submit" name="" value="<%= submit_text %>">
+</form>
+</div>
