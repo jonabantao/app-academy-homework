@@ -4,7 +4,7 @@ window.setTimeout(() => alert('HAMMERTIME'), 5000);
 
 //Timeout Plus Closure
 
-function hammerTime (time) {
+function hammerTime(time) {
   window.setTimeout(() => alert(`${time} is hammertime!`), time);
 }
 
@@ -23,8 +23,7 @@ function teaAndBiscuits() {
       const firstRes = (tea === 'yes') ? 'do' : 'don\'t';
       const secondRes = (biscuits === 'yes') ? 'do' : 'don\'t';
 
-      console.log(`So you ${firstRes} want tea and you ${secondRes} ` +
-         `want biscuits.`);
+      console.log(`So you ${firstRes} want tea and you ${secondRes} want biscuits.`);
       reader.close();
     });
   });
@@ -34,23 +33,22 @@ teaAndBiscuits();
 
 //Ways to Call a Function
 
-function Cat () {
+function Cat() {
   this.name = 'Markov';
   this.age = 3;
 }
 
-function Dog () {
+function Dog() {
   this.name = 'Noodles';
   this.age = 4;
 }
 
 Dog.prototype.chase = function (cat) {
-  console.log(`My name is ${this.name} and I'm chasing ${cat.name}! ` +
-  ` Woof!`);
+  console.log(`My name is ${this.name} and I'm chasing ${cat.name}! Woof!`);
 };
 
-const Markov = new Cat ();
-const Noodles = new Dog ();
+const Markov = new Cat();
+const Noodles = new Dog();
 
 Noodles.chase(Markov);
 Noodles.chase.call(Markov, Noodles);
