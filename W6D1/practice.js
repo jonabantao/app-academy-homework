@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function(){
   ctx.lineWidth = 3;
   ctx.stroke();
   ctx.fillStyle = 'rgb(255, 255, 0)';
-  ctx.fill();
+  ctx.fill(); 
 
   ctx.beginPath();
   ctx.arc(280, 250, 30, 0, 2 * Math.PI);
@@ -25,3 +25,11 @@ document.addEventListener("DOMContentLoaded", function(){
   ctx.fillStyle = 'yellow';
   ctx.fill();
 });
+
+function colors(color1, color2, ...moreColors) {
+  moreColors.forEach(color => {
+    console.log(color);
+  });
+}
+
+colors("red", "orange", "yellow", "green", "blue", "purple");
