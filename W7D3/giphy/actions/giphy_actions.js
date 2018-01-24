@@ -12,7 +12,7 @@ export const receiveSearchGiphys = giphys => {
 
 export const fetchSearchGiphys = (searchTerm) => {
   return (dispatch) => {
-    APIUtil.fetchSearchGiphys(searchTerm)
+    return APIUtil.fetchSearchGiphys(searchTerm)
       .then(giphys => dispatch(receiveSearchGiphys(giphys.data)));
   };
 };
