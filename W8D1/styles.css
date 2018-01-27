@@ -76,12 +76,12 @@ body {
   align-items: center;
 }
 
+
 .nav-links a {
   margin-right: 10px;
 }
 
 .nav-links a:hover {
-  margin-right: 10px;
   font-weight: 700;
 }
 
